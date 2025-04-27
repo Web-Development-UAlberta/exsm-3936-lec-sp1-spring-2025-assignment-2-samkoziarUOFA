@@ -58,12 +58,12 @@ async function main() {
     }
 
     get area() {
-      return (this.base * this.height) / 2;
+      return (this.base * this.height) / 2;  // Triangle area
     }
 
     get perimeter() {
-      const side = Math.sqrt((this.base / 2) * (this.base / 2) + this.height * this.height);
-      return 2 * side + this.base;
+      const side = Math.sqrt((this.base / 2) * (this.base / 2) + this.height * this.height);  // Sides of the triangle
+      return 2 * side + this.base;  // Perimeter of the triangle
     }
 
     contain() {
@@ -124,6 +124,29 @@ Choose: `));
     }
 
     let shape;
+    let shapeName;
+
+    switch (choice) {
+      case 1:
+        shapeName = "Rectangle";
+        break;
+
+      case 2:
+        shapeName = "Triangle";
+        break;
+
+      case 3:
+        shapeName = "Circle";
+        break;
+
+      default:
+        output("Invalid selection, please try again.");
+        continue; 
+    }
+
+    output(`Creating ${shapeName}`);
+
+    // Enter dimensions of choice
     switch (choice) {
       case 1:
         const rectLength = parseFloat(await input("Please enter Length: "));
@@ -147,7 +170,7 @@ Choose: `));
 
       default:
         console.log("Invalid selection, please try again.");
-        continue;  // This continue is valid because it's inside the loop
+        continue; 
     }
 
     // Add the created shape to the shapes array
