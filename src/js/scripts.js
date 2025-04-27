@@ -104,4 +104,21 @@ class Circle extends Shape {
 }
 
 
+// Interaction to create shapes
+
+const shapes = [];
+let totalArea = 0;
+let totalPerimeter = 0;
+let totalSquareArea = 0;
+
+while (true) {
+  const choice = parseInt(await input("Enter number of shape to create: 1. Rectangle \n 2. Triangle \n 3. Circle \n 0. Exit. \n Choice: "));
+  
+  if (choice === 0) {
+    break;
+  }
+}
+
+
+
 }
