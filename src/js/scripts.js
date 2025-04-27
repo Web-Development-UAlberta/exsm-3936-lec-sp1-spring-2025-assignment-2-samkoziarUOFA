@@ -33,11 +33,11 @@ async function main() {
     }
 
     get area() {
-      return this.length * this.width;
+      return this.length*this.width;
     }
 
     get perimeter() {
-      return 2*(this.length + this.width);
+      return 2*(this.length+this.width);
     }
 
     get isSquare() {
@@ -50,6 +50,58 @@ async function main() {
     }
   }
 
+
+// Triangle class inheriting from Shape
+class Triangle extends Shape {
+  constructor(base, height, colour) {
+    super(colour);
+    this.base = base;
+    this.height = height;
+  }
+
+  get area() {
+    return (this.base*this.height) / 2;
+  }
+
+  get perimeter() {
+    // Perimeter for an equal-sided triangletriangle
+    const side = Math.sqrt((this.base/2) * (this.base/2) + this.height*this.height);
+    return 2*side+this.base;
+  }
+
+  contain() {
+    const side = Math.max(this.base, this.height);
+    return new Rectangle(side, side, this.colour);
+  }
+}
+
+
+// Circle class inheriting from Shape
+class Circle extends Shape {
+  constructor(radius, colour) {
+    super(colour);
+    this.radius = radius;
+  }
+
+  get area() {
+    return Math.PI*Math.pow(this.radius, 2);
+  }
+
+  get circumference() {
+    return 2*Math.PI*this.radius;
+  }
+
+  // Implement the perimeter property of circle as an alias of circumference 
+  get perimeter() {
+    return this.circumference;
+  }
+
+  contain() {
+    // Return rectangle with side length equal to the diameter of the circle
+    const side = this.radius*2;
+    return new Rectangle(side, side, this.colour);
+  }
+}
 
 
 }
